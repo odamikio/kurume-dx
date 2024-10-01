@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Result</title>
+</head>
+    <style>
+        table {
+            width: 90%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>{{ query }}</h2>
+
+    {% if results %}
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:200px;">CHECK IN</th>
+                    <th>Camera Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in results %}
+                    <tr>
+                        <td>{{ user[0] }}</td>
+                        <td><a href="/camera_files/{{ user[1] }}">{{ user[1] }}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+
+        <p>User not found!</p>
+    {% endif %}
+
+    <a href="/">BACK</a>
+</body>
+</html>

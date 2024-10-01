@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEARCH</title>
+</head>
+<body>
+  <h2>Select a person.</h2>
+    <form method="POST" action="/submit">
+        <label for="username">Name :  </label>
+        <select name="query" id="username">
+            {% for username in usernames %}
+                <option value="{{ username }}">{{ username }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html>
